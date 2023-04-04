@@ -7,6 +7,7 @@ import Products from './pages/Products'
 import ProductPage from './pages/ProductPage'
 import Checkout from './pages/Checkout'
 import NotFound from './pages/NotFound'
+import './styles/main.css'
 
 function App() {
 	return (
