@@ -23,6 +23,9 @@ export default function Navbar() {
 				</li>
         <li><button>Cart <BsCart></BsCart></button></li>
 			</ul>
+      <div className="dropdown">
+        
+      </div>
 		</nav>
 	)
 }
