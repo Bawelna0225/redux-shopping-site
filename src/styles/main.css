@@ -10,7 +10,7 @@
   --secondary-bg: ;
   --text-color: white;
   --shadow-color: ;
-  --navbar-color: black;
+  --navbar-color: rgb(22, 22, 22);
 }
 
 body {
@@ -27,4 +27,13 @@ body {
   justify-content: space-between;
   padding-inline: 20px;
   align-items: center;
+}
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+}
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--text-color);
 }/*# sourceMappingURL=main.css.map */
