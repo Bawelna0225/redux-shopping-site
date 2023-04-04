@@ -11,8 +11,16 @@
     --shadow-color: ;
     --navbar-color: rgb(22, 22, 22);
 }
-body {
+.App {
     min-height: 100vh;
     min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+section {
+    // min-height: calc(100vh - 80px - 120px)
 }
 @import './_navbar.scss';
+@import './_footer.scss';

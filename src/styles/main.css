@@ -13,9 +13,13 @@
   --navbar-color: rgb(22, 22, 22);
 }
 
-body {
+.App {
   min-height: 100vh;
   min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar {
@@ -32,8 +36,41 @@ body {
   display: flex;
   list-style-type: none;
   gap: 20px;
+  height: 100%;
+}
+.navbar ul select {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+}
+.navbar ul li {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .navbar ul li a {
   text-decoration: none;
   color: var(--text-color);
+}
+.navbar ul li button {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+.navbar ul li button:hover {
+  cursor: pointer;
+}
+
+.footer {
+  width: 100vw;
+  height: 120px;
+  background-color: var(--navbar-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=main.css.map */

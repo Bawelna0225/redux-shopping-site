@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { BsCart } from 'react-icons/bs'
 
 export default function Navbar() {
 	return (
@@ -9,19 +9,19 @@ export default function Navbar() {
 			<ul>
 				<li>
 					<select>
-						<option>$</option>
-						<option>₤</option>
-						<option>€</option>
-						<option>¥</option>
+						<option>$ USD</option>
+						<option>₤ GBP</option>
+						<option>€ EURO</option>
+						<option>¥ YEN</option>
 					</select>
 				</li>
 				<li>
-					<Link href="/">Home</Link>
+					<Link to="/">Home</Link>
 				</li>
 				<li>
-					<Link href="/products">Products</Link>
+					<Link to="/products">Products</Link>
 				</li>
-        <li><button>Cart <AiOutlineShoppingCart></AiOutlineShoppingCart></button></li>
+        <li><button>Cart <BsCart></BsCart></button></li>
 			</ul>
 		</nav>
 	)
