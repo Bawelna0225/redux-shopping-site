@@ -18,6 +18,12 @@ export default function Navbar() {
 		setCurrencyDropdown(!currencyDropdown)
 		setDropdownOpen(false)
 	}
+	const handleKeyPress = (event) => {
+		const charCode = event.which ? event.which : event.keyCode
+		if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+			event.preventDefault()
+		}
+	}
 	return (
 		<nav className="navbar">
 			<div className="logo">LOGO</div>
@@ -53,7 +59,20 @@ export default function Navbar() {
 					</button>
 				</li>
 			</ul>
-			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}></div>
+			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
+				<div className="item">
+					<div className="item--pic"></div>
+					<div className="item--name"></div>
+					<div className="item--price"></div>
+					<div className="item--color"></div>
+					<div className="controls">
+						<button>-</button>
+						<input type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
+						<button>+</button>
+						<button>del</button>
+					</div>
+				</div>
+			</div>
 		</nav>
 	)
 }
