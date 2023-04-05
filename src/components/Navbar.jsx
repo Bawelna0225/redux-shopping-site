@@ -4,17 +4,42 @@ import { BsCart } from 'react-icons/bs'
 
 export default function Navbar() {
 	const [dropdownOpen, setDropdownOpen] = useState(false)
+	const [currencyDropdown, setCurrencyDropdown] = useState(false)
+	const [currency, setCurrency] = useState('$ USD')
+
+	function handleCurrencyChange(currency) {
+		setCurrency(currency)
+	}
+	function handleOpenDropdown() {
+		setDropdownOpen(!dropdownOpen)
+		setCurrencyDropdown(false)
+	}
+	function handleOpenCurrencySelect() {
+		setCurrencyDropdown(!currencyDropdown)
+		setDropdownOpen(false)
+	}
 	return (
 		<nav className="navbar">
 			<div className="logo">LOGO</div>
 			<ul>
 				<li>
-					<select>
-						<option>$ USD</option>
-						<option>₤ GBP</option>
-						<option>€ EURO</option>
-						<option>¥ YEN</option>
-					</select>
+					<div className={currencyDropdown ? 'select open' : 'select'} onClick={() => handleOpenCurrencySelect()}>
+						<input type="text" readOnly placeholder="Currency" value={currency}></input>
+						<div className="select-content">
+							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
+								$ USD
+							</div>
+							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
+								₤ GBP
+							</div>
+							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
+								€ EURO
+							</div>
+							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
+								¥ YEN
+							</div>
+						</div>
+					</div>
 				</li>
 				<li>
 					<Link to="/">Home</Link>
@@ -23,7 +48,7 @@ export default function Navbar() {
 					<Link to="/products">Products</Link>
 				</li>
 				<li>
-					<button onClick={() => setDropdownOpen(!dropdownOpen)}>
+					<button onClick={() => handleOpenDropdown()}>
 						Cart <BsCart></BsCart>
 					</button>
 				</li>
