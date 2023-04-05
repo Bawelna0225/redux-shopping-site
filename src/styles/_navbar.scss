@@ -34,8 +34,8 @@
 
 			button {
 				display: flex;
-                justify-content: center;
-                align-items: center;
+				justify-content: center;
+				align-items: center;
 				gap: 5px;
 				padding: 10px;
 				background-color: #fff;
@@ -51,20 +51,67 @@
 
 	.dropdown {
 		position: absolute;
-		top: 100px;
+
 		background-color: var(--navbar-color);
 		width: 340px;
 		min-height: 200px;
 		right: 20px;
+		border-radius: 4px;
+		opacity: 0;
+		top: 0px;
+		pointer-events: none;
+		z-index: -1;
+		animation: hide-dropdown 200ms linear forwards;
 		&::before {
 			content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: var(--navbar-color);
-            right: 25px;
-            top: -10px;
-            rotate: 45deg;
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background-color: var(--navbar-color);
+			right: 25px;
+			top: -10px;
+			rotate: 45deg;
 		}
+		&.show {
+			animation: show-dropdown 200ms linear forwards;
+		}
+	}
+}
+@keyframes show-dropdown {
+	0% {
+		opacity: 0;
+		top: 0;
+		pointer-events: none;
+		z-index: -1;
+	}
+	99% {
+		opacity: 1;
+		top: 100px;
+		z-index: -1;
+	}
+	100% {
+		opacity: 1;
+		top: 100px;
+		pointer-events: all;
+		z-index: 1;
+	}
+}
+@keyframes hide-dropdown {
+	0% {
+		opacity: 1;
+		top: 100px;
+		pointer-events: all;
+		z-index: -1;
+	}
+	99% {
+		opacity: 0;
+		top: 0px;
+		z-index: -1;
+	}
+	100% {
+		opacity: 0;
+		top: 0px;
+		pointer-events: none;
+		z-index: -1;
 	}
 }

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsCart } from 'react-icons/bs'
 
 export default function Navbar() {
+	const [dropdownOpen, setDropdownOpen] = useState(false)
 	return (
 		<nav className="navbar">
 			<div className="logo">LOGO</div>
@@ -21,11 +22,13 @@ export default function Navbar() {
 				<li>
 					<Link to="/products">Products</Link>
 				</li>
-        <li><button>Cart <BsCart></BsCart></button></li>
+				<li>
+					<button onClick={() => setDropdownOpen(!dropdownOpen)}>
+						Cart <BsCart></BsCart>
+					</button>
+				</li>
 			</ul>
-      <div className="dropdown">
-        
-      </div>
+			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}></div>
 		</nav>
 	)
 }
