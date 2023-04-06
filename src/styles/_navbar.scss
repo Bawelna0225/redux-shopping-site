@@ -117,8 +117,11 @@
 
 .select {
 	position: relative;
-	width: 110px;
+	width: 105px;
 	height: 46px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	&:hover {
 		&::before,
 		&::after {
@@ -131,8 +134,8 @@
 		// background-color: var(--text-color);
 		background-color: black;
 		top: 22px;
-		right: 18px;
-		width: 12px;
+		right: 16px;
+		width: 10px;
 		height: 2px;
 		z-index: 10;
 		rotate: 40deg;
@@ -145,13 +148,13 @@
 		background-color: black;
 		top: 22px;
 		right: 10px;
-		width: 12px;
+		width: 10px;
 		height: 2px;
 		z-index: 10;
 		rotate: -40deg;
 		transition: 0.5s;
 	}
-	input {
+	span {
 		color: var(--text-color);
 		color: black;
 		position: absolute;
@@ -161,12 +164,16 @@
 		height: 100%;
 		cursor: pointer;
 		border-radius: var(--border-radius);
-		padding: 0px 10px;
+		padding: 8px 10px;
 		// font-size: 16px;
 		background-color: var(--select-color);
 		box-shadow: var(--shadow-color);
 		outline: none;
 		border: none;
+		user-select: none;
+		&::first-letter {
+			color: var(--accent-color) !important;
+		}
 	}
 	.select-content {
 		position: absolute;
@@ -196,7 +203,7 @@
 			right: 10px;
 		}
 		&::after {
-			right: 18px;
+			right: 16px;
 		}
 		.select-content {
 			opacity: 1;

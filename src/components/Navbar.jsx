@@ -38,7 +38,7 @@ export default function Navbar() {
 			<ul>
 				<li>
 					<div className={currencyDropdown ? 'select open' : 'select'} onClick={() => handleOpenCurrencySelect()}>
-						<input type="text" readOnly placeholder="Currency" value={currency}></input>
+						<span>{currency}</span>
 						<div className="select-content">
 							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
 								$ USD
