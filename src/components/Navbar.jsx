@@ -47,10 +47,10 @@ export default function Navbar() {
 								₤ GBP
 							</div>
 							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
-								€ EURO
+								€ EUR
 							</div>
 							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
-								¥ YEN
+								¥ JPY
 							</div>
 						</div>
 					</div>
