@@ -1,14 +1,22 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { BsCart } from 'react-icons/bs'
+import { currencyChanged } from '../features/currencySlice'
 
 export default function Navbar() {
+	const dispatch = useDispatch()
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
 
 	function handleCurrencyChange(currency) {
 		setCurrency(currency)
+		dispatch(
+			currencyChanged({
+				currency
+			})
+		)
 	}
 	function handleOpenDropdown() {
 		setDropdownOpen(!dropdownOpen)
