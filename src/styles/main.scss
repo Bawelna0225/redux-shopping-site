@@ -15,6 +15,10 @@
     --accent-color: rgb(38, 143, 24);
     --select-color: rgb(255, 255, 255);
 }
+body {
+    overflow-x: hidden;
+
+}
 .App {
     min-height: 100vh;
     min-width: 100vw;
@@ -28,3 +32,4 @@ section {
 }
 @import './_navbar.scss';
 @import './_footer.scss';
+@import './_products.scss';

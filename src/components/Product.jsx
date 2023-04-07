@@ -22,10 +22,10 @@ export default function Product({ ...data }) {
 		<div className="product">
 			<img src={data.img} width={100} alt="" />
 			<div className="description">
-				<h1>{data.name}</h1>
-				<h3>
+				<h2>{data.name}</h2>
+				<p className='price'>
 					{currency} {displayedPrice}
-				</h3>
+				</p>
 			</div>
 		</div>
 	)

@@ -5,7 +5,7 @@ import Product from '../components/Product'
 
 export default function Products() {
 	return (
-		<div>
+		<div className='products'>
 			{items.map((item) => (
 				<Link as={NavLink} to={`${item.id}`} state={{ item: item }} key={item.id}>
 					<Product img={item.img} name={item.name} price={item.price} height="220px" />
