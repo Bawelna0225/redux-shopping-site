@@ -58,9 +58,9 @@
 		right: 20px;
 		border-radius: 4px;
 		opacity: 0;
-		top: 0px;
+		top: 100px;
 		pointer-events: none;
-		z-index: -1;
+		z-index: 1;
 		&::before {
 			content: '';
 			position: absolute;
@@ -79,39 +79,22 @@
 @keyframes show-dropdown {
 	0% {
 		opacity: 0;
-		top: 0;
 		pointer-events: none;
-		z-index: -1;
-	}
-	99% {
-		opacity: 1;
-		top: 100px;
 		z-index: -1;
 	}
 	100% {
 		opacity: 1;
-		top: 100px;
 		pointer-events: all;
-		z-index: 1;
 	}
 }
 @keyframes hide-dropdown {
 	0% {
 		opacity: 1;
-		top: 100px;
 		pointer-events: all;
-		z-index: -1;
-	}
-	99% {
-		opacity: 0;
-		top: 0px;
-		z-index: -1;
 	}
 	100% {
 		opacity: 0;
-		top: 0px;
 		pointer-events: none;
-		z-index: -1;
 	}
 }
 
