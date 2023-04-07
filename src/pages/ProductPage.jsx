@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 export default function ProductPage() {
 	const currency = useSelector((state) => state.currency.currency[0])
 	let displayedPrice
+
 	const location = useLocation()
 	const {
 		item: { id, name, price, img, sizes, colors },
@@ -43,9 +44,10 @@ export default function ProductPage() {
 				</div>
 				<div className="right-panel">
 					<h2>{name}</h2>
-					<h4>
-						Price: {currency} {displayedPrice}
-					</h4>
+					<div className='price'>
+						Price: 
+            <p>{currency} {displayedPrice}</p>
+					</div>
 					<div className="sizes">
 						{sizes.map((button) => (
 							<button key={button} value={button} className={activeSize == button ? 'active' : null} onClick={handleChangeChosenSize}>
