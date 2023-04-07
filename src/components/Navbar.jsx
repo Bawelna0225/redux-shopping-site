@@ -44,7 +44,7 @@ export default function Navbar() {
 								$ USD
 							</div>
 							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
-								₤ GBP
+								£ GBP
 							</div>
 							<div className="option" onClick={(e) => handleCurrencyChange(e.target.textContent)}>
 								€ EUR
