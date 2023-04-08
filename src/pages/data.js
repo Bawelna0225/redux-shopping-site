@@ -1,13 +1,13 @@
-import pic1 from '../images/pic1.jpg'
-import pic2 from '../images/2.jpg'
-import pic3 from '../images/3.jpg'
+import pic1 from '../images/pic1.png'
+import pic2 from '../images/2.png'
+import pic3 from '../images/3.png'
 import pic4 from '../images/4.jpg'
-import pic5 from '../images/5.jpg'
-import pic6 from '../images/6.jpg'
-import pic7 from '../images/7.jpg'
-import pic8 from '../images/8.jpg'
-import pic9 from '../images/9.jpg'
-import pic10 from '../images/10.jpg'
+import pic5 from '../images/5.png'
+import pic6 from '../images/6.png'
+import pic7 from '../images/7.png'
+import pic8 from '../images/8.png'
+import pic9 from '../images/9.png'
+import pic10 from '../images/10.png'
 export const items = [
 	{
 		id: 1,

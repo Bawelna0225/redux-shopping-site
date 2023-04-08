@@ -44,9 +44,11 @@ export default function ProductPage() {
 				</div>
 				<div className="right-panel">
 					<h2>{name}</h2>
-					<div className='price'>
-						Price: 
-            <p>{currency} {displayedPrice}</p>
+					<div className="price">
+						Price:
+						<p>
+							{currency} {displayedPrice}
+						</p>
 					</div>
 					<div className="sizes">
 						{sizes.map((button) => (

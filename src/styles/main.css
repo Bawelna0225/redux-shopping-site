@@ -275,10 +275,6 @@ body {
   color: var(--accent-color);
 }
 
-button:hover {
-  cursor: pointer;
-}
-
 .single-product-wrapper {
   color: black;
   width: min(100% - 2rem, 800px);
@@ -291,8 +287,8 @@ button:hover {
   padding: 20px;
 }
 .single-product-wrapper img {
-  height: 100%;
-  width: 100%;
+  height: 400px;
+  aspect-ratio: 1;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -303,20 +299,16 @@ button:hover {
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
+  width: 360px;
 }
 .single-product-wrapper .right-panel h2 {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: normal;
 }
 .single-product-wrapper .right-panel .price {
   font-size: 1.2rem;
   font-weight: normal;
   color: rgb(0, 0, 0);
-  display: flex;
-  gap: 10px;
-}
-.single-product-wrapper .right-panel .price p::first-letter {
-  color: var(--accent-color);
 }
 .single-product-wrapper .right-panel .sizes,
 .single-product-wrapper .right-panel .colors {
@@ -326,7 +318,7 @@ button:hover {
 .single-product-wrapper .right-panel .sizes button,
 .single-product-wrapper .right-panel .colors button {
   width: 40px;
-  aspect-ratio: 1;
+  height: 40px;
 }
 .single-product-wrapper .right-panel .sizes button.active,
 .single-product-wrapper .right-panel .colors button.active {
@@ -337,6 +329,7 @@ button:hover {
   transition: 300ms linear;
   position: relative;
   overflow: hidden;
+  border: none;
 }
 .single-product-wrapper .right-panel .colors button.active::before {
   top: 0;
@@ -348,10 +341,4 @@ button:hover {
   background-color: rgba(12, 12, 12, 0.662);
   border: 1px solid rgb(255, 255, 255);
   transform: rotate(-45deg) translate(50%, 50%);
-}
-.single-product-wrapper .right-panel button {
-  width: 250px;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid rgb(125, 125, 125);
 }/*# sourceMappingURL=main.css.map */

@@ -1,6 +1,3 @@
-button:hover {
-	cursor: pointer;
-}
 .single-product-wrapper {
 	color: black;
 	width: min(calc(100% - 2rem), 800px);
@@ -12,8 +9,8 @@ button:hover {
 	border-radius: 8px;
 	padding: 20px;
 	img {
-		height: 100%;
-		width: 100%;
+		height: 400px;
+		aspect-ratio: 1;
 		object-fit: cover;
 	}
 	.right-panel {
@@ -23,19 +20,15 @@ button:hover {
 		align-items: flex-start;
 		flex-direction: column;
 		gap: 20px;
+		width: 360px;
 		h2 {
-			font-size: 2.5rem;
+			font-size: 2.4rem;
 			font-weight: normal;
 		}
 		.price {
 			font-size: 1.2rem;
 			font-weight: normal;
 			color: rgb(0, 0, 0);
-            display: flex;
-            gap: 10px;
-            p::first-letter {
-                color: var(--accent-color);
-            }
 		}
 		.sizes,
 		.colors {
@@ -43,7 +36,7 @@ button:hover {
 			gap: 5px;
 			button {
 				width: 40px;
-				aspect-ratio: 1;
+				height: 40px;
 				&.active {
 					background-color: #000;
 					color: white;
@@ -55,6 +48,7 @@ button:hover {
 				transition: 300ms linear;
 				position: relative;
 				overflow: hidden;
+				border: none;
 				&.active {
 					&::before {
 						top: 0;
@@ -70,12 +64,6 @@ button:hover {
 					}
 				}
 			}
-		}
-		button {
-			width: 250px;
-			padding: 10px;
-			background-color: #fff;
-			border: 1px solid rgb(125, 125, 125);
 		}
 	}
 }
