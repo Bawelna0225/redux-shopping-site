@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { BsCartPlus } from 'react-icons/bs'
 
 export default function ProductPage() {
 	const currency = useSelector((state) => state.currency.currency[0])
@@ -68,7 +69,7 @@ export default function ProductPage() {
 							btn.preventDefault()
 						}}
 					>
-						Add To Cart
+						Add To Cart <BsCartPlus></BsCartPlus>
 					</button>
 				</div>
 			</div>
