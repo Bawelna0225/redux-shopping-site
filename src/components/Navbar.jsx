@@ -28,12 +28,6 @@ export default function Navbar() {
 		setCurrencyDropdown(!currencyDropdown)
 		setDropdownOpen(false)
 	}
-	const handleKeyPress = (event) => {
-		const charCode = event.which ? event.which : event.keyCode
-		if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-			event.preventDefault()
-		}
-	}
 	return (
 		<nav className="navbar">
 			<div className="logo">LOGO</div>
@@ -70,86 +64,256 @@ export default function Navbar() {
 				</li>
 			</ul>
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
-				<div className="item">
-					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
-					<div className="right">
-						<div className="top">
-							<div className="item--name">Product-2</div>
-							<div className="item--price">$ 9.99</div>
-						</div>
-						<div className="bottom">
-							<div className="item--size">XS</div>
-							<div className="item--color"></div>
-							<div className="controls">
-								<button>-</button>
-								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
-								<button>+</button>
-								<button className="delete">
-									<AiTwotoneDelete></AiTwotoneDelete>
-								</button>
+				<div className="cart-items">
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="item">
-					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
-					<div className="right">
-						<div className="top">
-							<div className="item--name">Product-2</div>
-							<div className="item--price">$ 9.99</div>
-						</div>
-						<div className="bottom">
-							<div className="item--size">XS</div>
-							<div className="item--color"></div>
-							<div className="controls">
-								<button>-</button>
-								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
-								<button>+</button>
-								<button className="delete">
-									<AiTwotoneDelete></AiTwotoneDelete>
-								</button>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="item">
-					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
-					<div className="right">
-						<div className="top">
-							<div className="item--name">Product-2</div>
-							<div className="item--price">$ 9.99</div>
-						</div>
-						<div className="bottom">
-							<div className="item--size">XS</div>
-							<div className="item--color"></div>
-							<div className="controls">
-								<button>-</button>
-								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
-								<button>+</button>
-								<button className="delete">
-									<AiTwotoneDelete></AiTwotoneDelete>
-								</button>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="item">
-					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
-					<div className="right">
-						<div className="top">
-							<div className="item--name">Product-2</div>
-							<div className="item--price">$ 9.99</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
 						</div>
-						<div className="bottom">
-							<div className="item--size">XS</div>
-							<div className="item--color"></div>
-							<div className="controls">
-								<button>-</button>
-								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
-								<button>+</button>
-								<button className="delete">
-									<AiTwotoneDelete></AiTwotoneDelete>
-								</button>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="item">
+						<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+						<div className="right">
+							<div className="top">
+								<div className="item--name">Product-2</div>
+								<div className="item--price">$ 5.99</div>
+							</div>
+							<div className="bottom">
+								<div className="item--size">XS</div>
+								<div className="item--color"></div>
+								<div className="controls">
+									<button>-</button>
+									<input type="number" min={0} max={100} className="item--quantity" inputMode="numeric"></input>
+									<button>+</button>
+									<button className="delete">
+										<AiTwotoneDelete></AiTwotoneDelete>
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>

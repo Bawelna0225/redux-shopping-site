@@ -82,6 +82,7 @@ body {
   background-color: var(--navbar-color);
   width: 340px;
   min-height: 200px;
+  max-height: min(100vh - 120px, 400px);
   right: 20px;
   border-radius: 4px;
   opacity: 0;
@@ -103,16 +104,21 @@ body {
   -webkit-animation: show-dropdown 200ms linear forwards;
           animation: show-dropdown 200ms linear forwards;
 }
+.navbar .dropdown .cart-items {
+  overflow: auto;
+  max-height: min(100vh - 120px, 300px);
+  position: relative;
+}
 
 .item {
   position: relative;
   z-index: 10;
-  padding: 10px;
+  padding: 15px;
   width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid rgb(56, 56, 56);
 }
 .item img {
   width: 50px;
@@ -131,13 +137,14 @@ body {
   align-items: center;
 }
 .item--color {
-  width: 25px;
-  height: 25px;
-  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  background-color: red;
 }
 .item .controls {
   display: flex;
   gap: 5px;
+  /* Firefox */
 }
 .item .controls input {
   text-align: center;
@@ -145,6 +152,14 @@ body {
   border: none;
   color: white;
   width: 30px;
+}
+.item .controls input::-webkit-outer-spin-button,
+.item .controls input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.item .controls input[type=number] {
+  -moz-appearance: textfield;
 }
 .item .controls button {
   aspect-ratio: 1/1 !important;
