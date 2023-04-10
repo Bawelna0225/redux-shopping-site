@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { BsCart } from 'react-icons/bs'
+import { BsCart, BsCartCheck } from 'react-icons/bs'
 import { AiTwotoneDelete } from 'react-icons/ai'
 import { currencyChanged } from '../features/currencySlice'
 import pic1 from '../images/2.png'
@@ -317,6 +317,12 @@ export default function Navbar() {
 							</div>
 						</div>
 					</div>
+				</div>
+				<div className="total">
+					<Link to='checkout'>Checkout <BsCartCheck></BsCartCheck></Link>
+					<span>
+						Total: $69.69
+					</span>
 				</div>
 			</div>
 		</nav>
