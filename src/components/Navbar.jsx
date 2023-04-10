@@ -66,9 +66,9 @@ export default function Navbar() {
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
 				<div className="cart-items">
 					<DropdownCartItem name='Product-1' price='$ 9.99' size='M' color='black' quantity='3' />
-					<DropdownCartItem name='pro' price='$ 5.99' size='XS' color='yellow' quantity='2' />
-					<DropdownCartItem name='pro' price='$ 3.99' size='S' color='red' quantity='1' />
-					<DropdownCartItem name='pro' price='$ 3.99' size='L' color='green' quantity='5' />
+					<DropdownCartItem name='Product-2' price='$ 5.99' size='XS' color='maroon' quantity='2' />
+					<DropdownCartItem name='Product-6' price='$ 16.99' size='S' color='blue' quantity='1' />
+					<DropdownCartItem name='Product-3' price='$ 19.99' size='L' color='springgreen' quantity='5' />
 				</div>
 				<div className="total">
 					<Link to="checkout">

@@ -79,6 +79,12 @@
 			overflow: auto;
 			max-height: min(calc(100vh - 120px), 300px);
 			position: relative;
+			&::-webkit-scrollbar {
+				width: 6px;
+			}
+			&::-webkit-scrollbar-thumb {
+				background: rgb(56, 56, 56);
+			}
 		}
 		.total {
 			padding: 10px;
@@ -86,6 +92,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			border-top: 1px solid rgb(179, 179, 179);
 			a {
 				background-color: #fff;
 				padding: 6px;

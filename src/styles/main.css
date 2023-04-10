@@ -109,12 +109,19 @@ body {
   max-height: min(100vh - 120px, 300px);
   position: relative;
 }
+.navbar .dropdown .cart-items::-webkit-scrollbar {
+  width: 6px;
+}
+.navbar .dropdown .cart-items::-webkit-scrollbar-thumb {
+  background: rgb(56, 56, 56);
+}
 .navbar .dropdown .total {
   padding: 10px;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid rgb(179, 179, 179);
 }
 .navbar .dropdown .total a {
   background-color: #fff;
