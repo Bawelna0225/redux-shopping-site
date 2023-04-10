@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { BsCart } from 'react-icons/bs'
+import { AiTwotoneDelete } from 'react-icons/ai'
 import { currencyChanged } from '../features/currencySlice'
+import pic1 from '../images/2.png'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
@@ -14,7 +16,7 @@ export default function Navbar() {
 		setCurrency(currency)
 		dispatch(
 			currencyChanged({
-				currency
+				currency,
 			})
 		)
 	}
@@ -69,15 +71,87 @@ export default function Navbar() {
 			</ul>
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
 				<div className="item">
-					<div className="item--pic"></div>
-					<div className="item--name"></div>
-					<div className="item--price"></div>
-					<div className="item--color"></div>
-					<div className="controls">
-						<button>-</button>
-						<input type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
-						<button>+</button>
-						<button>del</button>
+					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+					<div className="right">
+						<div className="top">
+							<div className="item--name">Product-2</div>
+							<div className="item--price">$ 9.99</div>
+						</div>
+						<div className="bottom">
+							<div className="item--size">XS</div>
+							<div className="item--color"></div>
+							<div className="controls">
+								<button>-</button>
+								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
+								<button>+</button>
+								<button className="delete">
+									<AiTwotoneDelete></AiTwotoneDelete>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="item">
+					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+					<div className="right">
+						<div className="top">
+							<div className="item--name">Product-2</div>
+							<div className="item--price">$ 9.99</div>
+						</div>
+						<div className="bottom">
+							<div className="item--size">XS</div>
+							<div className="item--color"></div>
+							<div className="controls">
+								<button>-</button>
+								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
+								<button>+</button>
+								<button className="delete">
+									<AiTwotoneDelete></AiTwotoneDelete>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="item">
+					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+					<div className="right">
+						<div className="top">
+							<div className="item--name">Product-2</div>
+							<div className="item--price">$ 9.99</div>
+						</div>
+						<div className="bottom">
+							<div className="item--size">XS</div>
+							<div className="item--color"></div>
+							<div className="controls">
+								<button>-</button>
+								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
+								<button>+</button>
+								<button className="delete">
+									<AiTwotoneDelete></AiTwotoneDelete>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="item">
+					<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+					<div className="right">
+						<div className="top">
+							<div className="item--name">Product-2</div>
+							<div className="item--price">$ 9.99</div>
+						</div>
+						<div className="bottom">
+							<div className="item--size">XS</div>
+							<div className="item--color"></div>
+							<div className="controls">
+								<button>-</button>
+								<input value={1} type="text" className="item--quantity" onKeyPress={handleKeyPress} inputMode="numeric"></input>
+								<button>+</button>
+								<button className="delete">
+									<AiTwotoneDelete></AiTwotoneDelete>
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
