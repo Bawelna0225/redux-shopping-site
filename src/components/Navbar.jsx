@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom'
 import { BsCart, BsCartCheck } from 'react-icons/bs'
 import { currencyChanged } from '../features/currencySlice'
 import DropdownCartItem from './DropdownCartItem'
-import pic1 from '../images/2.png'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
 	const cartItems = useSelector((state) => state.cart)
+	const sum = cartItems.reduce((acc, item) => acc + item.price, 0)
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
+
+	let displayedTotal
 
 	function handleCurrencyChange(currency) {
 		setCurrency(currency)
@@ -20,6 +22,21 @@ export default function Navbar() {
 				currency,
 			})
 		)
+	}
+
+	switch (currency) {
+		case '£ GBP':
+			displayedTotal = Math.round(sum * 0.8 * 100) / 100
+			break
+		case '€ EUR':
+			displayedTotal = Math.round(sum * 0.92 * 100) / 100
+			break
+		case '¥ JPY':
+			displayedTotal = Math.round(sum * 131.61 * 100) / 100
+			break
+		default:
+			displayedTotal = sum
+			break
 	}
 	function handleOpenDropdown() {
 		setDropdownOpen(!dropdownOpen)
@@ -76,13 +93,14 @@ export default function Navbar() {
 							<Link to="checkout">
 								Checkout <BsCartCheck></BsCartCheck>
 							</Link>
-							<span>
-								Total: <span style={{ color: 'var(--accent-color)' }}>{currency[0]}</span>
-							</span>
+							<p>
+								Total: <span style={{ color: 'var(--accent-color)', marginRight: '5px' }}>{currency[0]}</span>
+								<span>{displayedTotal.toFixed(2)}</span>
+							</p>
 						</div>
 					</>
 				) : (
-					<p className='empty-cart'>Your Cart Is Empty</p>
+					<p className="empty-cart">Your Cart Is Empty</p>
 				)}
 			</div>
 		</nav>
