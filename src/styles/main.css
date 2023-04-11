@@ -105,6 +105,7 @@ body {
           animation: show-dropdown 200ms linear forwards;
 }
 .navbar .dropdown .cart-items {
+  margin-top: 10px;
   overflow: auto;
   max-height: min(100vh - 120px, 300px);
   position: relative;

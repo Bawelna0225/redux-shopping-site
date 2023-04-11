@@ -76,6 +76,7 @@
 			animation: show-dropdown 200ms linear forwards;
 		}
 		.cart-items {
+			margin-top: 10px;
 			overflow: auto;
 			max-height: min(calc(100vh - 120px), 300px);
 			position: relative;
