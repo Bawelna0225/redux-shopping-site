@@ -36,7 +36,15 @@ export default function ProductPage() {
 	const handleChangeChosenColor = (e) => {
 		setActiveColor(e.target.value)
 	}
-
+	const handleAddToCart = (data) => {
+		console.table(data);
+		// console.log('=================');
+		// console.log('Product Name: ', data.name);
+		// console.log('Product Price: ', data.price);
+		// console.log('Product Img Path: ', data.img);
+		// console.log('Product Size: ', data.activeSize);
+		// console.log('Product Color: ', data.activeColor);
+	}
 	return (
 		<section>
 			<div className="single-product-wrapper">
@@ -67,6 +75,7 @@ export default function ProductPage() {
 						className="add-to-cart"
 						onClick={(btn) => {
 							btn.preventDefault()
+							handleAddToCart({name, price, img, activeSize, activeColor})
 						}}
 					>
 						Add To Cart <BsCartPlus></BsCartPlus>
