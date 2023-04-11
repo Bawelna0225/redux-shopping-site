@@ -1,11 +1,32 @@
 import React from 'react'
 import pic1 from '../images/2.png'
+import { useSelector, useDispatch } from 'react-redux'
 import { AiTwotoneDelete } from 'react-icons/ai'
 
 export default function DropdownCartItem(data) {
-	let { name, price, size, color, quantity } = data
+	let { name, img, price, size, color, quantity } = data
+	const currency = useSelector((state) => state.currency.currency[0])
+	const dispatch = useDispatch()
+
+	let displayedPrice
+
+	switch (currency) {
+		case '£':
+			displayedPrice = Math.round(price * 0.8 * 100) / 100
+			break
+		case '€':
+			displayedPrice = Math.round(price * 0.92 * 100) / 100
+			break
+		case '¥':
+			displayedPrice = Math.round(price * 131.61 * 100) / 100
+			break
+		default:
+			displayedPrice = price
+			break
+	}
 	function handleQuantityIncrease(item) {
 		console.log('increase', item)
+		quantity++
 	}
 	function handleQuantityDecrease(item) {
 		console.log('decrease', item)
@@ -15,11 +36,13 @@ export default function DropdownCartItem(data) {
 	}
 	return (
 		<div className="item">
-			<img src={pic1} width={40} height={40} alt="a" className="item--pic"></img>
+			<img src={img} width={40} height={40} alt="" className="item--pic"></img>
 			<div className="right">
 				<div className="top">
 					<div className="item--name">{name}</div>
-					<div className="item--price">{price}</div>
+					<div className="item--price">
+						<span style={{ color: 'var(--accent-color)' }}>{currency}</span> {displayedPrice}
+					</div>
 				</div>
 				<div className="bottom">
 					<div className="item--size">{size}</div>

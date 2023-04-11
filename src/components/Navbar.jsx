@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { BsCart, BsCartCheck } from 'react-icons/bs'
 import { currencyChanged } from '../features/currencySlice'
@@ -8,6 +8,7 @@ import pic1 from '../images/2.png'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
+	const cartItems = useSelector((state) => state.cart)
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
@@ -65,16 +66,17 @@ export default function Navbar() {
 			</ul>
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
 				<div className="cart-items">
-					<DropdownCartItem name="Product-1" price="$ 9.99" size="M" color="black" quantity="3" />
-					<DropdownCartItem name="Product-2" price="$ 5.99" size="XS" color="maroon" quantity="2" />
-					<DropdownCartItem name="Product-6" price="$ 16.99" size="S" color="blue" quantity="1" />
-					<DropdownCartItem name="Product-3" price="$ 19.99" size="L" color="springgreen" quantity="5" />
+					{cartItems.map((item, index) => {
+						return <DropdownCartItem key={index} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={1} />
+					})}
 				</div>
 				<div className="total">
 					<Link to="checkout">
 						Checkout <BsCartCheck></BsCartCheck>
 					</Link>
-					<span>Total: $69.69</span>
+					<span>
+						Total: <span style={{ color: 'var(--accent-color)' }}>{currency[0]}</span>
+					</span>
 				</div>
 			</div>
 		</nav>

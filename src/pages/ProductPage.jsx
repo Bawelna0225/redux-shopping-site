@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { BsCartPlus } from 'react-icons/bs'
+import { itemAdded } from '../features/cartSlice'
+import { nanoid } from '@reduxjs/toolkit'
 
 export default function ProductPage() {
 	const currency = useSelector((state) => state.currency.currency[0])
+	const dispatch = useDispatch()
 	let displayedPrice
 
 	const location = useLocation()
@@ -36,14 +39,17 @@ export default function ProductPage() {
 	const handleChangeChosenColor = (e) => {
 		setActiveColor(e.target.value)
 	}
-	const handleAddToCart = (data) => {
-		console.table(data);
-		// console.log('=================');
-		// console.log('Product Name: ', data.name);
-		// console.log('Product Price: ', data.price);
-		// console.log('Product Img Path: ', data.img);
-		// console.log('Product Size: ', data.activeSize);
-		// console.log('Product Color: ', data.activeColor);
+	const handleAddToCart = () => {
+		dispatch(
+			itemAdded({
+				id: nanoid(),
+				name,
+				price,
+				img,
+				activeSize,
+				activeColor,
+			})
+		)
 	}
 	return (
 		<section>
@@ -75,7 +81,7 @@ export default function ProductPage() {
 						className="add-to-cart"
 						onClick={(btn) => {
 							btn.preventDefault()
-							handleAddToCart({name, price, img, activeSize, activeColor})
+							handleAddToCart()
 						}}
 					>
 						Add To Cart <BsCartPlus></BsCartPlus>
