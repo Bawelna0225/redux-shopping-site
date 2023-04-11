@@ -38,6 +38,7 @@ export default function Navbar() {
 			displayedTotal = sum
 			break
 	}
+
 	function handleOpenDropdown() {
 		setDropdownOpen(!dropdownOpen)
 		setCurrencyDropdown(false)
@@ -78,6 +79,7 @@ export default function Navbar() {
 				<li>
 					<button onClick={() => handleOpenDropdown()}>
 						Cart <BsCart></BsCart>
+						{cartItems.length > 0 && <span className="cart-quantity">{cartItems.length}</span>}
 					</button>
 				</li>
 			</ul>
