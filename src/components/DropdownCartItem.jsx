@@ -34,6 +34,9 @@ export default function DropdownCartItem(data) {
 	function handleQuantityChange(e) {
 		console.log('change', e.target.value)
 	}
+	function handleItemDelete(item) {
+		console.log('delete', item)
+	}
 	return (
 		<div className="item">
 			<img src={img} width={40} height={40} alt="" className="item--pic"></img>
@@ -51,7 +54,7 @@ export default function DropdownCartItem(data) {
 						<button onClick={() => handleQuantityDecrease(data)}>-</button>
 						<input type="number" min={0} max={100} value={quantity} className="item--quantity" inputMode="numeric" onChange={(e) => handleQuantityChange(e)}></input>
 						<button onClick={() => handleQuantityIncrease(data)}>+</button>
-						<button className="delete">
+						<button className="delete" onClick={() => handleItemDelete(data)}>
 							<AiTwotoneDelete></AiTwotoneDelete>
 						</button>
 					</div>

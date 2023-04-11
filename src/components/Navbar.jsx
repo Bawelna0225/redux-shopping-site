@@ -67,7 +67,7 @@ export default function Navbar() {
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
 				<div className="cart-items">
 					{cartItems.map((item, index) => {
-						return <DropdownCartItem key={index} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={1} />
+						return <DropdownCartItem key={index} id={item.id} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={1} />
 					})}
 				</div>
 				<div className="total">
