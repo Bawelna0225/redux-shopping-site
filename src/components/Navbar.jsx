@@ -65,19 +65,25 @@ export default function Navbar() {
 				</li>
 			</ul>
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
-				<div className="cart-items">
-					{cartItems.map((item, index) => {
-						return <DropdownCartItem key={index} id={item.id} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={1} />
-					})}
-				</div>
-				<div className="total">
-					<Link to="checkout">
-						Checkout <BsCartCheck></BsCartCheck>
-					</Link>
-					<span>
-						Total: <span style={{ color: 'var(--accent-color)' }}>{currency[0]}</span>
-					</span>
-				</div>
+				{cartItems.length > 0 ? (
+					<>
+						<div className="cart-items">
+							{cartItems.map((item, index) => {
+								return <DropdownCartItem key={index} id={item.id} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={1} />
+							})}
+						</div>
+						<div className="total">
+							<Link to="checkout">
+								Checkout <BsCartCheck></BsCartCheck>
+							</Link>
+							<span>
+								Total: <span style={{ color: 'var(--accent-color)' }}>{currency[0]}</span>
+							</span>
+						</div>
+					</>
+				) : (
+					<p className='empty-cart'>Your Cart Is Empty</p>
+				)}
 			</div>
 		</nav>
 	)
