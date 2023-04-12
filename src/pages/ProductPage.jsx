@@ -40,12 +40,14 @@ export default function ProductPage() {
 		setActiveColor(e.target.value)
 	}
 	const handleAddToCart = () => {
+		let quantity = 1;
 		dispatch(
 			itemAdded({
 				id: nanoid(),
 				name,
 				price,
 				img,
+				quantity,
 				activeSize,
 				activeColor,
 			})

@@ -1,7 +1,7 @@
 import React from 'react'
-import pic1 from '../images/2.png'
 import { useSelector, useDispatch } from 'react-redux'
 import { AiTwotoneDelete } from 'react-icons/ai'
+import { increase } from '../features/cartSlice'
 
 export default function DropdownCartItem(data) {
 	let { name, img, price, size, color, quantity } = data
@@ -25,8 +25,13 @@ export default function DropdownCartItem(data) {
 			break
 	}
 	function handleQuantityIncrease(item) {
-		console.log('increase', item)
-		quantity++
+		const itemId = item.id
+		// console.log(itemId)
+		dispatch(
+			increase({
+				itemId,
+			})
+		)
 	}
 	function handleQuantityDecrease(item) {
 		console.log('decrease', item)

@@ -7,13 +7,13 @@ import DropdownCartItem from './DropdownCartItem'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
-	const cartItems = useSelector((state) => state.cart)
-	const sum = cartItems.reduce((acc, item) => acc + item.price, 0)
+	const cart = useSelector((state) => state.cart.cartItems)
+	// const sum = cart.reduce((acc, item) => acc + item.price, 0)
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
 
-	let displayedTotal
+	let displayedTotal,sum=0
 
 	function handleCurrencyChange(currency) {
 		setCurrency(currency)
@@ -79,16 +79,16 @@ export default function Navbar() {
 				<li>
 					<button onClick={() => handleOpenDropdown()}>
 						Cart <BsCart></BsCart>
-						{cartItems.length > 0 && <span className="cart-quantity">{cartItems.length}</span>}
+						{cart.length > 0 && <span className="cart-quantity">{cart.length}</span>}
 					</button>
 				</li>
 			</ul>
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
-				{cartItems.length > 0 ? (
+				{cart.length > 0 ? (
 					<>
 						<div className="cart-items">
-							{cartItems.map((item, index) => {
-								return <DropdownCartItem key={index} id={item.id} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={1} />
+							{cart.map((item, index) => {
+								return <DropdownCartItem key={index} id={item.id} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={item.quantity} />
 							})}
 						</div>
 						<div className="total">
