@@ -4,16 +4,18 @@ import { Link } from 'react-router-dom'
 import { BsCart, BsCartCheck } from 'react-icons/bs'
 import { currencyChanged } from '../features/currencySlice'
 import DropdownCartItem from './DropdownCartItem'
+import { calculateTotals } from '../features/cartSlice'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
-	const cart = useSelector((state) => state.cart.cartItems)
-	// const sum = cart.reduce((acc, item) => acc + item.price, 0)
+	dispatch(calculateTotals())
+	const { cartItems, total } = useSelector((store) => store.cart)
+	const sum = total
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
 
-	let displayedTotal,sum=0
+	let displayedTotal
 
 	function handleCurrencyChange(currency) {
 		setCurrency(currency)
@@ -23,7 +25,6 @@ export default function Navbar() {
 			})
 		)
 	}
-
 	switch (currency) {
 		case '£ GBP':
 			displayedTotal = Math.round(sum * 0.8 * 100) / 100
@@ -79,15 +80,15 @@ export default function Navbar() {
 				<li>
 					<button onClick={() => handleOpenDropdown()}>
 						Cart <BsCart></BsCart>
-						{cart.length > 0 && <span className="cart-quantity">{cart.length}</span>}
+						{cartItems.length > 0 && <span className="cart-quantity">{cartItems.length}</span>}
 					</button>
 				</li>
 			</ul>
 			<div className={dropdownOpen ? 'dropdown show' : 'dropdown'}>
-				{cart.length > 0 ? (
+				{cartItems.length > 0 ? (
 					<>
 						<div className="cart-items">
-							{cart.map((item, index) => {
+							{cartItems.map((item, index) => {
 								return <DropdownCartItem key={index} id={item.id} name={item.name} img={item.img} price={item.price} size={item.activeSize} color={item.activeColor} quantity={item.quantity} />
 							})}
 						</div>
