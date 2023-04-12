@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { AiTwotoneDelete } from 'react-icons/ai'
-import { increase, decrease } from '../features/cartSlice'
+import { increase, decrease, itemRemoved } from '../features/cartSlice'
 
 export default function DropdownCartItem(data) {
 	let { name, img, price, size, color, quantity } = data
@@ -44,7 +44,12 @@ export default function DropdownCartItem(data) {
 		console.log('change', e.target.value)
 	}
 	function handleItemDelete(item) {
-		console.log('delete', item)
+		const itemId = item.id
+		dispatch(
+			itemRemoved({
+				itemId,
+			})
+		)
 	}
 	return (
 		<div className="item">

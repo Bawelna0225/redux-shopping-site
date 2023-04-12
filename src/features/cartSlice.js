@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
 	cartItems: [],
 }
-// const initialState = []
 
 const cartSlice = createSlice({
 	name: 'cart',
@@ -13,7 +12,8 @@ const cartSlice = createSlice({
 			state.cartItems.push(action.payload)
 		},
 		itemRemoved(state, action) {
-			state.push(action.payload)
+			const itemId = action.payload.itemId
+			state.cartItems = state.cartItems.filter((item) => item.id !== itemId)
 		},
 		increase: (state, { payload }) => {
 			const cartItem = state.cartItems.find((item) => item.id === payload.itemId)
