@@ -9,8 +9,7 @@ import { calculateTotals } from '../features/cartSlice'
 export default function Navbar() {
 	const dispatch = useDispatch()
 	dispatch(calculateTotals())
-	const { cartItems, total } = useSelector((store) => store.cart)
-	const sum = total
+	const { cartItems, total, quantity } = useSelector((store) => store.cart)
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
@@ -27,16 +26,16 @@ export default function Navbar() {
 	}
 	switch (currency) {
 		case '£ GBP':
-			displayedTotal = Math.round(sum * 0.8 * 100) / 100
+			displayedTotal = Math.round(total * 0.8 * 100) / 100
 			break
 		case '€ EUR':
-			displayedTotal = Math.round(sum * 0.92 * 100) / 100
+			displayedTotal = Math.round(total * 0.92 * 100) / 100
 			break
 		case '¥ JPY':
-			displayedTotal = Math.round(sum * 131.61 * 100) / 100
+			displayedTotal = Math.round(total * 131.61 * 100) / 100
 			break
 		default:
-			displayedTotal = sum
+			displayedTotal = total
 			break
 	}
 
@@ -80,7 +79,7 @@ export default function Navbar() {
 				<li>
 					<button onClick={() => handleOpenDropdown()}>
 						Cart <BsCart></BsCart>
-						{cartItems.length > 0 && <span className="cart-quantity">{cartItems.length}</span>}
+						{quantity > 0 && <span className="cart-quantity">{quantity}</span>}
 					</button>
 				</li>
 			</ul>
