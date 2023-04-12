@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { addItem } from '../features/cartSlice'
 import { BsCartPlus } from 'react-icons/bs'
-import { itemAdded } from '../features/cartSlice'
 import { nanoid } from '@reduxjs/toolkit'
 
 export default function ProductPage() {
 	const currency = useSelector((state) => state.currency.currency[0])
+	const { cartItems, quantity } = useSelector((store) => store.cart)
+
 	const dispatch = useDispatch()
 	let displayedPrice
 
@@ -39,15 +41,15 @@ export default function ProductPage() {
 	const handleChangeChosenColor = (e) => {
 		setActiveColor(e.target.value)
 	}
+
 	const handleAddToCart = () => {
-		let quantity = 1;
 		dispatch(
-			itemAdded({
+			addItem({
 				id: nanoid(),
 				name,
 				price,
 				img,
-				quantity,
+				quantity: 1,
 				activeSize,
 				activeColor,
 			})
