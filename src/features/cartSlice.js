@@ -19,6 +19,8 @@ const cartSlice = createSlice({
 			)
 			if (!existingItem) {
 				state.cartItems.push(action.payload)
+			} else {
+				existingItem.quantity++
 			}
 		},
 		itemRemoved(state, action) {
