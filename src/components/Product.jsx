@@ -24,7 +24,7 @@ export default function Product({ ...data }) {
 			<div className="description">
 				<h2>{data.name}</h2>
 				<p className='price'>
-					{currency} {displayedPrice.toFixed(2)}
+					{currency} {displayedPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true})}
 				</p>
 			</div>
 		</div>

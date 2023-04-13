@@ -67,7 +67,7 @@ export default function DropdownCartItem(data) {
 				<div className="top">
 					<div className="item--name">{name}</div>
 					<div className="item--price">
-						<span style={{ color: 'var(--accent-color)' }}>{currency}</span> {displayedPrice}
+						<span style={{ color: 'var(--accent-color)' }}>{currency}</span> {displayedPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true})}
 					</div>
 				</div>
 				<div className="bottom">

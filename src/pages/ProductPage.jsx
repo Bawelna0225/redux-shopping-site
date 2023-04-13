@@ -66,7 +66,7 @@ export default function ProductPage() {
 					<div className="price">
 						Price:
 						<p>
-							{currency} {displayedPrice.toFixed(2)}
+							{currency} {displayedPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true})}
 						</p>
 					</div>
 					<div className="sizes">

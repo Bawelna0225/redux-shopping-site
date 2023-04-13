@@ -99,7 +99,7 @@ export default function Navbar() {
 							</Link>
 							<p>
 								Total: <span style={{ color: 'var(--accent-color)', marginRight: '5px' }}>{currency[0]}</span>
-								<span>{displayedTotal.toFixed(2)}</span>
+								<span>{displayedTotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true})}</span>
 							</p>
 						</div>
 					</>
