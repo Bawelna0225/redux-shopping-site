@@ -42,6 +42,7 @@ export default function DropdownCartItem(data) {
 	}
 	function handleQuantityChange(event, item) {
 		quantity = parseInt(event.target.value)
+		if(event.target.value === '') quantity = 1
 		const itemId = item.id
 		if(quantity >= 100 || quantity <= 0) return
 		dispatch(
