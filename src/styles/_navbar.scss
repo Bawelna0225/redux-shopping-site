@@ -116,6 +116,7 @@
 			justify-content: space-between;
 			align-items: center;
 			border-top: 1px solid rgb(179, 179, 179);
+			gap: 5px;
 			a {
 				background-color: #fff;
 				padding: 6px;
@@ -126,6 +127,9 @@
 				align-items: center;
 				gap: 8px;
 			}
+			p {
+				text-align: right;
+			}			
 		}
 	}
 }
