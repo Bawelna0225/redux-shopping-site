@@ -7,9 +7,9 @@ import { nanoid } from '@reduxjs/toolkit'
 
 export default function ProductPage() {
 	const currency = useSelector((state) => state.currency.currency[0])
-	const { cartItems, quantity } = useSelector((store) => store.cart)
 
 	const dispatch = useDispatch()
+
 	let displayedPrice
 
 	const location = useLocation()

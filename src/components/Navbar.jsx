@@ -8,7 +8,9 @@ import { calculateTotal } from '../features/cartSlice'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
+
 	dispatch(calculateTotal())
+	
 	const { cartItems, total, quantity } = useSelector((store) => store.cart)
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
