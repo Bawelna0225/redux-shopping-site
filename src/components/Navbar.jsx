@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import { BsCart, BsCartCheck } from 'react-icons/bs'
 import { currencyChanged } from '../features/currencySlice'
 import DropdownCartItem from './DropdownCartItem'
-import { calculateTotals } from '../features/cartSlice'
+import { calculateTotal } from '../features/cartSlice'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
-	dispatch(calculateTotals())
+	dispatch(calculateTotal())
 	const { cartItems, total, quantity } = useSelector((store) => store.cart)
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)

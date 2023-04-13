@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { AiTwotoneDelete } from 'react-icons/ai'
-import { increase, decrease, itemRemoved } from '../features/cartSlice'
+import { increase, decrease, removeItem, setQuantity } from '../features/cartSlice'
 
 export default function DropdownCartItem(data) {
 	let { name, img, price, size, color, quantity } = data
@@ -40,13 +40,21 @@ export default function DropdownCartItem(data) {
 			})
 		)
 	}
-	function handleQuantityChange(e) {
-		console.log('change', e.target.value)
+	function handleQuantityChange(event, item) {
+		quantity = parseInt(event.target.value)
+		const itemId = item.id
+		if(quantity >= 100 || quantity <= 0) return
+		dispatch(
+			setQuantity({
+				itemId,
+				quantity,
+			})
+		)
 	}
 	function handleItemDelete(item) {
 		const itemId = item.id
 		dispatch(
-			itemRemoved({
+			removeItem({
 				itemId,
 			})
 		)
@@ -66,7 +74,7 @@ export default function DropdownCartItem(data) {
 					<div className="item--color" style={{ background: color }}></div>
 					<div className="controls">
 						<button onClick={() => handleQuantityDecrease(data)}>-</button>
-						<input type="number" min={0} max={100} value={quantity} className="item--quantity" inputMode="numeric" onChange={(e) => handleQuantityChange(e)}></input>
+						<input type="number" min={0} max={100} value={quantity} className="item--quantity" inputMode="numeric" onChange={(event) => handleQuantityChange(event, data)}></input>
 						<button onClick={() => handleQuantityIncrease(data)}>+</button>
 						<button className="delete" onClick={() => handleItemDelete(data)}>
 							<AiTwotoneDelete></AiTwotoneDelete>
