@@ -16,6 +16,7 @@ const cartSlice = createSlice({
 			if (!existingItem) {
 				state.cartItems.push(action.payload)
 			} else {
+				if (existingItem.quantity >= 100) return
 				existingItem.quantity++
 			}
 		},
