@@ -66,7 +66,7 @@ export default function ProductPage() {
 					<div className="price">
 						Price:
 						<p>
-							{currency} {displayedPrice}
+							{currency} {displayedPrice.toFixed(2)}
 						</p>
 					</div>
 					<div className="sizes">

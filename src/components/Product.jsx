@@ -24,7 +24,7 @@ export default function Product({ ...data }) {
 			<div className="description">
 				<h2>{data.name}</h2>
 				<p className='price'>
-					{currency} {displayedPrice}
+					{currency} {displayedPrice.toFixed(2)}
 				</p>
 			</div>
 		</div>
