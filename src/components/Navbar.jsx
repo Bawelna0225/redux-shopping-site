@@ -122,13 +122,15 @@ export default function Navbar() {
 					<p className="empty-cart">Your Cart Is Empty</p>
 				)}
 			</div>
-			<div className="search-results">
-				{items.map((item) => (
-					<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id}>
-						<SearchItem img={item.img} name={item.name} price={item.price}/>
-					</Link>
-				))}
-			</div>
+			{searchValue.length > 0 && (
+				<div className="search-results">
+					{items.map((item) => (
+						<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id}>
+							<SearchItem img={item.img} name={item.name} price={item.price} />
+						</Link>
+					))}
+				</div>
+			)}
 		</nav>
 	)
 }

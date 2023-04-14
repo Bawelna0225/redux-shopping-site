@@ -359,6 +359,7 @@
 		visibility: hidden;
 		opacity: 0;
 		transition: 0.25s;
+		z-index: 2;
 		.option {
 			padding: 8px 10px;
 			cursor: pointer;

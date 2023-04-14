@@ -399,6 +399,7 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: 0.25s;
+  z-index: 2;
 }
 .select .select-content .option {
   padding: 8px 10px;
