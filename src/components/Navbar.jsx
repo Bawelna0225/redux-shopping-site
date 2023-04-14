@@ -19,6 +19,7 @@ export default function Navbar() {
 	const [currency, setCurrency] = useState('$ USD')
 	const [openSearchBar, setOpenSearchBar] = useState(false)
 	const [searchValue, setSearchValue] = useState('')
+	// const [filteredItems, setFilteredItems] = useState(items)
 
 	let displayedTotal
 
@@ -56,6 +57,8 @@ export default function Navbar() {
 	function handleSearchValueChange(event) {
 		setSearchValue(event.target.value)
 	}
+	const filteredItems = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+
 	return (
 		<nav className="navbar">
 			<div className="logo">LOGO</div>
@@ -124,11 +127,17 @@ export default function Navbar() {
 			</div>
 			{searchValue.length > 0 && (
 				<div className="search-results">
-					{items.map((item) => (
-						<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id}>
-							<SearchItem img={item.img} name={item.name} price={item.price} />
-						</Link>
-					))}
+					{filteredItems.length > 0 ? (
+						filteredItems.map((item) => (
+							<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id}>
+								<SearchItem img={item.img} name={item.name} price={item.price} />
+							</Link>
+						))
+					) : (
+						<p>
+							Not Found: <span style={{ color: 'red' }}>"{searchValue}"</span>
+						</p>
+					)}
 				</div>
 			)}
 		</nav>
