@@ -6,6 +6,7 @@ import { currencyChanged } from '../features/currencySlice'
 import DropdownCartItem from './DropdownCartItem'
 import { calculateTotal } from '../features/cartSlice'
 import { items } from '../pages/data'
+import SearchItem from './SearchItem'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
@@ -124,13 +125,7 @@ export default function Navbar() {
 			<div className="search-results">
 				{items.map((item) => (
 					<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id}>
-						<div className='search-item'>
-							<img src={item.img} alt="" />
-							<div className="info">
-								<p>{item.name}</p>
-								<p className='price'>{currency[0]} {item.price}</p>
-							</div>
-						</div>
+						<SearchItem img={item.img} name={item.name} price={item.price}/>
 					</Link>
 				))}
 			</div>
