@@ -15,6 +15,7 @@ export default function Navbar() {
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
+	const [openSearchBar, setOpenSearchBar] = useState(false)
 
 	let displayedTotal
 
@@ -54,9 +55,9 @@ export default function Navbar() {
 			<div className="logo">LOGO</div>
 			<ul>
 				<li>
-					<div className="search-bar">
+					<div className={openSearchBar ? "search-bar open": 'search-bar'}>
 						<input type="text" />
-						<button className="search-btn">
+						<button className="search-btn" onClick={() => setOpenSearchBar(!openSearchBar)}>
 							<BsSearch></BsSearch>
 						</button>
 					</div>
