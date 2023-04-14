@@ -184,6 +184,35 @@ body {
 .navbar .dropdown .total p {
   text-align: right;
 }
+.navbar .search-results {
+  width: min(100vw - 2rem, 800px);
+  background-color: var(--navbar-color);
+  left: 50%;
+  translate: -50%;
+  padding: 20px;
+  display: grid;
+  position: absolute;
+  top: 100px;
+  gap: 20px;
+  z-index: 1;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.navbar .search-results a {
+  text-decoration: none;
+}
+.navbar .search-results .search-item {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.navbar .search-results .search-item img {
+  width: 50px;
+  height: 50px;
+}
+.navbar .search-results .search-item .price::first-letter {
+  color: var(--accent-color);
+}
 
 .item {
   position: relative;

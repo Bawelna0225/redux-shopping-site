@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { BsCart, BsCartCheck, BsSearch } from 'react-icons/bs'
 import { currencyChanged } from '../features/currencySlice'
 import DropdownCartItem from './DropdownCartItem'
 import { calculateTotal } from '../features/cartSlice'
+import { items } from '../pages/data'
 
 export default function Navbar() {
 	const dispatch = useDispatch()
@@ -16,6 +17,7 @@ export default function Navbar() {
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
 	const [currency, setCurrency] = useState('$ USD')
 	const [openSearchBar, setOpenSearchBar] = useState(false)
+	const [searchValue, setSearchValue] = useState('')
 
 	let displayedTotal
 
@@ -50,13 +52,16 @@ export default function Navbar() {
 		setCurrencyDropdown(!currencyDropdown)
 		setDropdownOpen(false)
 	}
+	function handleSearchValueChange(event) {
+		setSearchValue(event.target.value)
+	}
 	return (
 		<nav className="navbar">
 			<div className="logo">LOGO</div>
 			<ul>
 				<li>
-					<div className={openSearchBar ? "search-bar open": 'search-bar'}>
-						<input type="text" />
+					<div className={openSearchBar ? 'search-bar open' : 'search-bar'}>
+						<input type="text" placeholder="Find product" value={searchValue} onChange={(e) => handleSearchValueChange(e)} />
 						<button className="search-btn" onClick={() => setOpenSearchBar(!openSearchBar)}>
 							<BsSearch></BsSearch>
 						</button>
@@ -115,6 +120,19 @@ export default function Navbar() {
 				) : (
 					<p className="empty-cart">Your Cart Is Empty</p>
 				)}
+			</div>
+			<div className="search-results">
+				{items.map((item) => (
+					<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id}>
+						<div className='search-item'>
+							<img src={item.img} alt="" />
+							<div className="info">
+								<p>{item.name}</p>
+								<p className='price'>{currency[0]} {item.price}</p>
+							</div>
+						</div>
+					</Link>
+				))}
 			</div>
 		</nav>
 	)
