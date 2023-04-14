@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { BsCart, BsCartCheck } from 'react-icons/bs'
+import { BsCart, BsCartCheck, BsSearch } from 'react-icons/bs'
 import { currencyChanged } from '../features/currencySlice'
 import DropdownCartItem from './DropdownCartItem'
 import { calculateTotal } from '../features/cartSlice'
@@ -10,7 +10,7 @@ export default function Navbar() {
 	const dispatch = useDispatch()
 
 	dispatch(calculateTotal())
-	
+
 	const { cartItems, total, quantity } = useSelector((store) => store.cart)
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const [currencyDropdown, setCurrencyDropdown] = useState(false)
@@ -53,6 +53,14 @@ export default function Navbar() {
 		<nav className="navbar">
 			<div className="logo">LOGO</div>
 			<ul>
+				<li>
+					<div className="search-bar">
+						<input type="text" />
+						<button className="search-btn">
+							<BsSearch></BsSearch>
+						</button>
+					</div>
+				</li>
 				<li>
 					<div className={currencyDropdown ? 'select open' : 'select'} onClick={() => handleOpenCurrencySelect()}>
 						<span>{currency}</span>
@@ -99,7 +107,7 @@ export default function Navbar() {
 							</Link>
 							<p>
 								Total: <span style={{ color: 'var(--accent-color)', marginRight: '5px' }}>{currency[0]}</span>
-								<span>{displayedTotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true})}</span>
+								<span>{displayedTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true })}</span>
 							</p>
 						</div>
 					</>
