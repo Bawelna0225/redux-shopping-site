@@ -65,7 +65,7 @@ export default function Navbar() {
 				<li>
 					<div className={openSearchBar ? 'search-bar open' : 'search-bar'}>
 						<input type="text" placeholder="Find product" value={searchValue} onChange={(e) => handleSearchValueChange(e)} />
-						<button className="search-btn" onClick={() => setOpenSearchBar(!openSearchBar)}>
+						<button className="search-btn" onClick={() => {setOpenSearchBar(!openSearchBar); setSearchValue('')}}>
 							<BsSearch></BsSearch>
 						</button>
 					</div>
