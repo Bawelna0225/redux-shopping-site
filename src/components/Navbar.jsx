@@ -128,7 +128,7 @@ export default function Navbar() {
 				<div className="search-results">
 					{filteredItems.length > 0 ? (
 						filteredItems.map((item) => (
-							<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id}>
+							<Link as={NavLink} to={`products/${item.id}`} state={{ item: item }} key={item.id} onClick={() => setSearchValue('')}>
 								<SearchItem img={item.img} name={item.name} price={item.price} />
 							</Link>
 						))
