@@ -19,7 +19,6 @@ export default function Navbar() {
 	const [currency, setCurrency] = useState('$ USD')
 	const [openSearchBar, setOpenSearchBar] = useState(false)
 	const [searchValue, setSearchValue] = useState('')
-	// const [filteredItems, setFilteredItems] = useState(items)
 
 	let displayedTotal
 
