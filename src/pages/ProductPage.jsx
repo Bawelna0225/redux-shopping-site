@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItem } from '../features/cartSlice'
@@ -19,6 +19,10 @@ export default function ProductPage() {
 
 	const [activeSize, setActiveSize] = useState(sizes[0])
 	const [activeColor, setActiveColor] = useState(colors[0])
+
+	useEffect(() => {
+		setActiveColor(colors[0])
+	}, [location])
 
 	switch (currency) {
 		case '£':
@@ -66,7 +70,7 @@ export default function ProductPage() {
 					<div className="price">
 						Price:
 						<p>
-							{currency} {displayedPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true})}
+							{currency} {displayedPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2, useGrouping: true })}
 						</p>
 					</div>
 					<div className="sizes">
