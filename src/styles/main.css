@@ -61,8 +61,20 @@ body {
   display: flex;
   position: relative;
 }
+.navbar ul li .search-bar .reset-search {
+  height: 46px;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 35px;
+  background-color: transparent;
+  opacity: 0;
+  transition: 150ms linear;
+}
 .navbar ul li .search-bar.open input {
   scale: 1 1;
+}
+.navbar ul li .search-bar.open .reset-search {
+  opacity: 1;
 }
 .navbar ul li .search-bar .search-btn {
   height: 46px;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
-import { BsCart, BsCartCheck, BsSearch } from 'react-icons/bs'
+import { BsCart, BsCartCheck, BsSearch, BsXLg } from 'react-icons/bs'
 import { currencyChanged } from '../features/currencySlice'
 import DropdownCartItem from './DropdownCartItem'
 import { calculateTotal } from '../features/cartSlice'
@@ -65,6 +65,7 @@ export default function Navbar() {
 				<li>
 					<div className={openSearchBar ? 'search-bar open' : 'search-bar'}>
 						<input type="text" placeholder="Find product" value={searchValue} onChange={(e) => handleSearchValueChange(e)} />
+						<button className="reset-search" onClick={() => setSearchValue('')}><BsXLg></BsXLg></button>
 						<button className="search-btn" onClick={() => {setOpenSearchBar(!openSearchBar); setSearchValue('')}}>
 							<BsSearch></BsSearch>
 						</button>

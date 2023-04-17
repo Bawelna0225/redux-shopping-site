@@ -30,9 +30,21 @@
 			.search-bar {
 				display: flex;
 				position: relative;
+				.reset-search {
+					height: 46px;
+					aspect-ratio: 1;
+					position: absolute;
+					right: 35px;
+					background-color: transparent;
+					opacity: 0;
+					transition: 150ms linear;
+				}
 				&.open {
 					input {
 						scale: 1 1;
+					}
+					.reset-search {
+						opacity: 1;
 					}
 				}
 				.search-btn {
