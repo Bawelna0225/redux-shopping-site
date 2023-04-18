@@ -8,15 +8,15 @@ export default function Checkout() {
 	const dispatch = useDispatch()
 
 	let displayedTotal
-  
+
 	switch (currency) {
-		case '£ GBP':
+		case '£':
 			displayedTotal = Math.round(total * 0.8 * 100) / 100
 			break
-		case '€ EUR':
+		case '€':
 			displayedTotal = Math.round(total * 0.92 * 100) / 100
 			break
-		case '¥ JPY':
+		case '¥':
 			displayedTotal = Math.round(total * 131.61 * 100) / 100
 			break
 		default:
