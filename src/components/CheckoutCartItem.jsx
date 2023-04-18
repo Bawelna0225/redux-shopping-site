@@ -1,6 +1,7 @@
-import React from 'react'
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { increase, decrease, removeItem, setQuantity } from '../features/cartSlice'
+import { AiTwotoneDelete } from 'react-icons/ai'
 
 export default function CheckoutCartItem(data) {
     let { name, img, price, size, color, quantity } = data
