@@ -25,7 +25,7 @@ export default function Checkout() {
 	}
 
 	return (
-		<div className="cart">
+		<div className="checkout-cart">
 			{cartItems.length > 0 ? (
 				<>
 					<div className="cart-items">

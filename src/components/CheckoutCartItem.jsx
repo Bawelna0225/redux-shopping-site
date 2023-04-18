@@ -4,7 +4,7 @@ import { increase, decrease, removeItem, setQuantity } from '../features/cartSli
 import { AiTwotoneDelete } from 'react-icons/ai'
 
 export default function CheckoutCartItem(data) {
-    let { name, img, price, size, color, quantity } = data
+	let { name, img, price, size, color, quantity } = data
 	const currency = useSelector((state) => state.currency.currency[0])
 	const dispatch = useDispatch()
 
@@ -71,8 +71,11 @@ export default function CheckoutCartItem(data) {
 					</div>
 				</div>
 				<div className="bottom">
-					<div className="item--size">{size}</div>
-					<div className="item--color" style={{ background: color }}></div>
+					<div className="item--size">Size: {size}</div>
+					<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px'}}>
+						Color:
+						<div className="item--color" style={{ background: color }}></div>
+					</div>
 					<div className="controls">
 						<button onClick={() => handleQuantityDecrease(data)}>-</button>
 						<input type="number" min={0} max={100} value={quantity} className="item--quantity" inputMode="numeric" onChange={(event) => handleQuantityChange(event, data)}></input>
